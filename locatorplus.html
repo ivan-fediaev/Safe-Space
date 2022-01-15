@@ -9,10 +9,11 @@
     <link href="locatorplus.css" rel="stylesheet">
     <script src="locatorplus.js"></script>
     <script>
+
+      const jsonData = require("./washrooms.json")
+
       const CONFIGURATION = {
-        "locations": [
-          {"title":"1025 Boundary Rd","address1":"1025 Boundary Rd","address2":"Vancouver, BC V5K 4T2, Canada","coords":{"lat":49.27640467784375,"lng":-123.0254882067459},"placeId":"ChIJn80lMNFwhlQR2-ZTw_YZBok"}
-        ],
+        "locations": jsonData,
         "mapOptions": {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":false,"zoom":4,"zoomControl":true,"maxZoom":17},
         "mapsApiKey": "AIzaSyAIyqVay-7_nFbU0sh6MfMjboL3dqGv82k"
       };
