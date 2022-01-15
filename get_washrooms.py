@@ -1,6 +1,6 @@
 import json 
 
-with open("washrooms.json", "r") as inputfile:
+with open("public-washrooms.json", "r") as inputfile:
     data = json.load(inputfile)
 # { "title": "1025 Boundary Rd", 
 # "address1": "1025 Boundary Rd", 
@@ -21,5 +21,5 @@ for val in data:
         "downvotes": 0
     })
 
-with open("output.json", "w+") as outfile:
-    json.dump(output, outfile, indent=4)
+with open("washrooms.json", "w+") as outfile:
+    json.dump(output, outfile)
