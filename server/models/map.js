@@ -40,3 +40,5 @@ const mapSchema = new mongoose.Schema({
     default: 0,
   },
 });
+
+module.exports = mongoose.model("Map", mapSchema);
