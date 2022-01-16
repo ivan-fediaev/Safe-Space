@@ -11,6 +11,16 @@
  let responseDiv;
  let response;
  
+ function find_lat_match(lat) {
+  for (var i = 0; i < marker_array.length; i++) { 
+    if(marker_array[i].lat == lat){
+      console.log("looping array");
+      console.log(i);
+      return i;
+    } 
+  }
+ }
+ let marker_array = [];
  function addMarker(location, map) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
@@ -27,7 +37,11 @@
   document.getElementById("downvotes").innerHTML = new_marker.downvotes;
   x.style.display = "block";
   marker.addListener('click', function() {
+    var x = document.getElementById("myCard");
 
+    document.getElementById("demo").innerHTML = new_marker.title;
+    document.getElementById("upvotes").innerHTML = new_marker.upvotes;
+    document.getElementById("downvotes").innerHTML = new_marker.downvotes;
     if (x.style.display === "none") {
       x.style.display = "block";
       
