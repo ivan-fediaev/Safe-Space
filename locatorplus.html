@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Locator</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/handlebars/4.7.7/handlebars.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="locatorplus.css" rel="stylesheet">
+  <script src="locatorplus.js"></script>
+  <script>
+
+
+    const CONFIGURATION = {
+      "locations": [{ "title": "Barclay Heritage Square", "address1": "1433 Barclay Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2872148697549, "lng": -123.132560510918 }, "placeId": "6a38d8caeac579986354a8ff2d6b129942c1eda6", "upvotes": 0, "downvotes": 0 }, { "title": "David Lam Park", "address1": "1300 Pacific Boulevard", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2723830073375, "lng": -123.125415035162 }, "placeId": "7bae32725576a39a6fe0a12adb926e95c82a38f3", "upvotes": 0, "downvotes": 0 }, { "title": "Elm Park", "address1": "5800 Elm Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2334319792246, "lng": -123.163283944614 }, "placeId": "8290f2c4b5d11339243331ef72503f6381fcbd1f", "upvotes": 0, "downvotes": 0 }, { "title": "Granville Park", "address1": "3001 Fir Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2584930114999, "lng": -123.14196994988 }, "placeId": "1ffd2f61756a0c69fd2c084cf1f5cbee38def19f", "upvotes": 0, "downvotes": 0 }, { "title": "Hastings Community Park", "address1": "3000 E Pender Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2806479707568, "lng": -123.03787394911 }, "placeId": "09878539cbb76bc9e889c8cdd2c7220c8bb73783", "upvotes": 0, "downvotes": 0 }, { "title": "Jericho Beach Park", "address1": "3941 Point Grey Road", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2744279889871, "lng": -123.20280599872 }, "placeId": "98fd76c9535e5b3ed63bea6a18757fa7b49b0061", "upvotes": 0, "downvotes": 0 }, { "title": "John Hendry (Trout Lake) Park", "address1": "3300 Victoria Drive", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2539260388866, "lng": -123.061387988851 }, "placeId": "0a381757e13c807822f3d8cf1e667917bd8904c5", "upvotes": 0, "downvotes": 0 }, { "title": "Kitsilano Beach Park", "address1": "1499 Arbutus Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2730140340116, "lng": -123.157542967602 }, "placeId": "e8c671483de6f9882bae20e842e6d0ed56e9501d", "upvotes": 0, "downvotes": 0 }, { "title": "Kitsilano Beach Park", "address1": "1499 Arbutus Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2744719935869, "lng": -123.153702974672 }, "placeId": "0714795b999347e66670f3a28d68d12fecef38f5", "upvotes": 0, "downvotes": 0 }, { "title": "Maple Grove Park", "address1": "6875 Yew Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2233840215141, "lng": -123.159582974748 }, "placeId": "a1cb35a604e47c3b98f4415f81c39407babe1bb4", "upvotes": 0, "downvotes": 0 }, { "title": "McBride Park", "address1": "3350 W 4th Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2681069665443, "lng": -123.180140962198 }, "placeId": "88835a51cdb95662ff70c3bf2c25a07e44341679", "upvotes": 0, "downvotes": 0 }, { "title": "Memorial South Park", "address1": "5955 Ross Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2307380348496, "lng": -123.084388002617 }, "placeId": "2d840180f368335be1b9b5797823a9682488f29c", "upvotes": 0, "downvotes": 0 }, { "title": "Queen Elizabeth Park", "address1": "4600 Cambie Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2421839651063, "lng": -123.112919003359 }, "placeId": "110368ae8aaed3eb37ce31b45ffd8168764b2a5c", "upvotes": 0, "downvotes": 0 }, { "title": "Quilchena Park", "address1": "4590 Magnolia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2446430482962, "lng": -123.148723944856 }, "placeId": "67484ff47f5edbd017212fc9c68620fb5005dd4a", "upvotes": 0, "downvotes": 0 }, { "title": "Riverfront Park", "address1": "2750 E Kent Ave S", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2057680376434, "lng": -123.051846970695 }, "placeId": "af5e8e72e6116e05412c147fe02c69a38ee928d1", "upvotes": 0, "downvotes": 0 }, { "title": "Ross Park", "address1": "7402 Ross Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2166999806775, "lng": -123.082798035022 }, "placeId": "7bf8874505385907b8d4d9266d009e958d9d905f", "upvotes": 0, "downvotes": 0 }, { "title": "Rupert Park", "address1": "1600 Rupert Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2701350041925, "lng": -123.030604979627 }, "placeId": "f6cb23d193922771b56bb3ff94cd7368f3e836f6", "upvotes": 0, "downvotes": 0 }, { "title": "Slocan Park", "address1": "2750 E 29th Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2444379784009, "lng": -123.047952017189 }, "placeId": "56ad0a0c3899e3319b6b3375a25a84da82bee660", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2908669672286, "lng": -123.145354964422 }, "placeId": "ba78a88edf521b334bfa92e9d91a3062396cf35b", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2936169900948, "lng": -123.148714956707 }, "placeId": "802e59401dd6e88b8cd201713080a72945e8b7ba", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2922930215573, "lng": -123.146580040925 }, "placeId": "0b24e012294aad3418d21ee9eea145ff73443341", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2977530146591, "lng": -123.131432966091 }, "placeId": "f3b671557b797c7dce8762695a884cc1a7236c4e", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2995490315169, "lng": -123.134051016088 }, "placeId": "4af9eeaf174d6cc77640bdc46f6daf5271ebe326", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2930350373012, "lng": -123.146599024764 }, "placeId": "80eaaa516d659286205e614530fbbcbce94e783b", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.3105500283612, "lng": -123.148388039898 }, "placeId": "041416a1c898289db1a8c67b4476558afb402a92", "upvotes": 0, "downvotes": 0 }, { "title": "Sunset Beach Park", "address1": "1204 Beach Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2788370147886, "lng": -123.137950043494 }, "placeId": "57de73e8a4da983dafc9460589e0b8174510f3fc", "upvotes": 0, "downvotes": 0 }, { "title": "Trillium Park", "address1": "600 National Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2748, "lng": -123.092911042306 }, "placeId": "633b2ef35afbdc5d7bbf6c2cdc5a737a905b613d", "upvotes": 0, "downvotes": 0 }, { "title": "VanDusen Botanical Garden", "address1": "5251 Oak Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2385104498556, "lng": -123.128638340165 }, "placeId": "65ccc74fa6e9af2667742d3f878d1d33732b6dd3", "upvotes": 0, "downvotes": 0 }, { "title": "Main at Hastings", "address1": "SW corner of intersection", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.281107, "lng": -123.09985 }, "placeId": "3e96228c18a9b13150c804f02cd494b46437eb66", "upvotes": 0, "downvotes": 0 }, { "title": "Hastings at Carral - Pigeon Park", "address1": "NW corner of intersection", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2816384, "lng": -123.104602 }, "placeId": "3ff45515295014f3ff6881899d448ec14a8105c5", "upvotes": 0, "downvotes": 0 }, { "title": "Main at Terminal", "address1": "NE corner of intersection", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2731387, "lng": -123.099778 }, "placeId": "99ece71c74eb3643c4d6fe67cb9c0e8c1e7b40c9", "upvotes": 0, "downvotes": 0 }, { "title": "Nelson at Howe", "address1": "NE corner of intersection", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2796964, "lng": -123.123516 }, "placeId": "fca28fc084462fb822dd3415022c000f497078f7", "upvotes": 0, "downvotes": 0 }, { "title": "Richards at Davie - Emery Barnes Park", "address1": "NW corner of intersection", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2760544, "lng": -123.124114 }, "placeId": "1b5614ba3846affe058f187ad1110d721e4f0018", "upvotes": 0, "downvotes": 0 }, { "title": "Robson at Granville", "address1": "NW corner of intersection", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2816325, "lng": -123.120082 }, "placeId": "22f2404ebfb7ceafb228eb625559525f2acf0d25", "upvotes": 0, "downvotes": 0 }, { "title": "Robson at Richards", "address1": "NW corner of intersection", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2803243, "lng": -123.118054 }, "placeId": "c34d923a840c7765d6df294690f970ef1334a0e1", "upvotes": 0, "downvotes": 0 }, { "title": "Vancouver Art Gallary", "address1": "NE Side of VAG Building", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.282961, "lng": -123.119864 }, "placeId": "8c272250ee17f25f70a7fcbaaf88295e57dfe16a", "upvotes": 0, "downvotes": 0 }, { "title": "Adanac Park", "address1": "1025 Boundary Road", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2758809677686, "lng": -123.024071960319 }, "placeId": "793e7960e380aa663040ad6bc95f66c0cdc77236", "upvotes": 0, "downvotes": 0 }, { "title": "Balaclava Park", "address1": "4594 Balaclava Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2452339943975, "lng": -123.175460949361 }, "placeId": "7a670401a7376b658683fbfabd6eba6855d20896", "upvotes": 0, "downvotes": 0 }, { "title": "Beaconsfield Park", "address1": "3215 Slocan Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2552329902121, "lng": -123.049933959326 }, "placeId": "f518aea63395ed86439951693f7aedac136c4f77", "upvotes": 0, "downvotes": 0 }, { "title": "Braemar Park", "address1": "895 W 27th Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2474209947128, "lng": -123.124483021671 }, "placeId": "68e2d481a112444e68dafda32423974957d0b336", "upvotes": 0, "downvotes": 0 }, { "title": "Brewers Park", "address1": "4175 Victoria Drive", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2478549906707, "lng": -123.065425949078 }, "placeId": "d91b3e0e514278cef4c144df8b771412a0f2877b", "upvotes": 0, "downvotes": 0 }, { "title": "Burrard View Park", "address1": "650 North Penticton Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2903639621952, "lng": -123.049648970845 }, "placeId": "12e2cf68079b708c830dcdc24dd2c097aa30cdc8", "upvotes": 0, "downvotes": 0 }, { "title": "CRAB Park at Portside", "address1": "101 E Waterfront Road", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2845920073111, "lng": -123.101835004137 }, "placeId": "f2cf3509faeac1bf371502a5026f063b8c1a7ea5", "upvotes": 0, "downvotes": 0 }, { "title": "Carnarvon Park", "address1": "2995 W 19th Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2567420168862, "lng": -123.172609010381 }, "placeId": "22b9e1a25b4954082fcd828d8d480db1a510399a", "upvotes": 0, "downvotes": 0 }, { "title": "Clinton Park", "address1": "2690 Grant Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2711450328993, "lng": -123.049782027867 }, "placeId": "0e633882c57d14975d8b7a87840a4717dbca36a6", "upvotes": 0, "downvotes": 0 }, { "title": "Columbia Park", "address1": "5908 Alberta Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.231522997877, "lng": -123.112908974023 }, "placeId": "b24430902a638d7e70adab0257f1f2faca6b24d0", "upvotes": 0, "downvotes": 0 }, { "title": "Falaise Park", "address1": "3434 Falaise Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2551230346758, "lng": -123.029405986745 }, "placeId": "37d9e43c5cecaed5e21ff0c72db756ec9488a568", "upvotes": 0, "downvotes": 0 }, { "title": "Garden Park", "address1": "1851 Garden Drive", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2682859984386, "lng": -123.058333994001 }, "placeId": "f4864e84265d167c4e3b264aac38738af57fec22", "upvotes": 0, "downvotes": 0 }, { "title": "Grandview Park", "address1": "1255 Commercial Drive", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2737616313216, "lng": -123.069954446436 }, "placeId": "7d70b204f13e34abb9ac026623a2b05bfbe7cc78", "upvotes": 0, "downvotes": 0 }, { "title": "Grays Park", "address1": "4850 St. Catherines Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2407870046013, "lng": -123.084887032665 }, "placeId": "bbe8ee7e90bfa74330656e8880c1ac795aa4b75e", "upvotes": 0, "downvotes": 0 }, { "title": "Hadden Park", "address1": "1905 Ogden Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2774609930893, "lng": -123.15030998211 }, "placeId": "d57ec8c8d9391ff766e9032a25c42529d9c09b24", "upvotes": 0, "downvotes": 0 }, { "title": "Jericho Beach Park", "address1": "3941 Point Grey Road", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2715800212711, "lng": -123.191658959557 }, "placeId": "3ad0e53065985906b284cdbee323ea7e6687e2e8", "upvotes": 0, "downvotes": 0 }, { "title": "Jonathan Rogers Park", "address1": "110 W 7th Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2644980299255, "lng": -123.107620016125 }, "placeId": "a5bd7726d7daf4a44e6774a2971ecfd5dea68826", "upvotes": 0, "downvotes": 0 }, { "title": "Jones Park", "address1": "5350 Commercial Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2362049589966, "lng": -123.068328027105 }, "placeId": "7d50201a1111d8b663979eeded307aebe402c2ba", "upvotes": 0, "downvotes": 0 }, { "title": "Memorial West Park", "address1": "4701 Dunbar Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2433349852208, "lng": -123.188455003096 }, "placeId": "aa1996f0817ff268b247003ec2a5368815bd6033", "upvotes": 0, "downvotes": 0 }, { "title": "Montgomery Park", "address1": "1040 W 43rd Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2318260466293, "lng": -123.129240986478 }, "placeId": "9d55a4f771f5414d7d316c0328507a44bec5e854", "upvotes": 0, "downvotes": 0 }, { "title": "New Brighton Park", "address1": "3201 New Brighton Road", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2893339699629, "lng": -123.036025007443 }, "placeId": "de3cbf922d91efcf2e1645a43e1dcdfdd8970d48", "upvotes": 0, "downvotes": 0 }, { "title": "New Brighton Park", "address1": "3201 New Brighton Road", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.289293, "lng": -123.036308 }, "placeId": "f4c918e7ee44b714903a8bc858dc8d5073813c33", "upvotes": 0, "downvotes": 0 }, { "title": "Oak Park", "address1": "900 W 59th Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.216285995094, "lng": -123.127640978659 }, "placeId": "5c2270857ee6e14b8069c97132d38c736c07479a", "upvotes": 0, "downvotes": 0 }, { "title": "Prince Edward Park", "address1": "3773 Prince Edward Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2511909721127, "lng": -123.097056994174 }, "placeId": "2b05da027fd1f50c84fe822129842cd75356f964", "upvotes": 0, "downvotes": 0 }, { "title": "Robson Park", "address1": "599 Kingsway", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2586270164444, "lng": -123.092848986795 }, "placeId": "7aa09965a58ecc69878e0f11108e40f5b949169c", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2956269925671, "lng": -123.150733000629 }, "placeId": "aed3e3577f1c2881deeaf6fcde15290313e1de45", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2939220383499, "lng": -123.138591029397 }, "placeId": "3d4f49135c265ae0013b5ed31d9de12687c6d408", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2994400235276, "lng": -123.12127801962 }, "placeId": "982a68cf8779090e68b9396e34ded6102a92e833", "upvotes": 0, "downvotes": 0 }, { "title": "West Point Grey Park", "address1": "2250 Trimble Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2665415433898, "lng": -123.204579564378 }, "placeId": "c27197be9188a57005dd4ca002e852d0d2de2718", "upvotes": 0, "downvotes": 0 }, { "title": "Woodland Park", "address1": "705 Woodland Drive", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2783689722403, "lng": -123.073220004653 }, "placeId": "5cb95998e28d7eaab80fe14c361c9cd91c3d4c07", "upvotes": 0, "downvotes": 0 }, { "title": "Victory Square", "address1": "N/A", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2825906, "lng": -123.110132 }, "placeId": "7d9321814cc3e80871bbc56ce51e9427fb0669ce", "upvotes": 0, "downvotes": 0 }, { "title": "Bute at Davie", "address1": "NE corner of intersection", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2818541, "lng": -123.133141 }, "placeId": "c15e4bb2ffb88510b03158408d8308ba3bfb4f9b", "upvotes": 0, "downvotes": 0 }, { "title": "Andy Livingstone Park", "address1": "89 Expo Boulevard", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2778209665246, "lng": -123.103599022256 }, "placeId": "2c41fe9b197714a156b9505513034be8e99c112b", "upvotes": 0, "downvotes": 0 }, { "title": "Bobolink Park", "address1": "2510 Hoylake Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2156069867489, "lng": -123.056414955041 }, "placeId": "ec83b5f1d5e9528e412573c1fe14b4d17de7100a", "upvotes": 0, "downvotes": 0 }, { "title": "Chaldecott Park", "address1": "4175 Wallace Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2494269600837, "lng": -123.19112496205 }, "placeId": "e45847e5ce0d8646f02d66b1640630d49cdd9fb4", "upvotes": 0, "downvotes": 0 }, { "title": "Collingwood Park", "address1": "5275 McKinnon Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2365299637476, "lng": -123.036715960679 }, "placeId": "cffddb42608bdecf0e9d162f20c4c25f5a816472", "upvotes": 0, "downvotes": 0 }, { "title": "English Bay Beach Park", "address1": "1700 Beach Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2861540400257, "lng": -123.142804967084 }, "placeId": "1c6cda420f93b7de32367386166c56b0fff4cf43", "upvotes": 0, "downvotes": 0 }, { "title": "Fraser River Park", "address1": "8705 Angus Drive", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2073949985982, "lng": -123.149856004532 }, "placeId": "e5b41bb1c39d3b4281c9ebc55b2cff0c84dfb0f1", "upvotes": 0, "downvotes": 0 }, { "title": "Fraserview Golf Course", "address1": "7800 Vivian Drive", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2112953517694, "lng": -123.042299667586 }, "placeId": "4db97cc81ebbe7a32203eb0b37b53e0eabffdaac", "upvotes": 0, "downvotes": 0 }, { "title": "Gordon Park", "address1": "6675 Commercial Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2238700450659, "lng": -123.069499978534 }, "placeId": "d4c25d7c4b8ffbf77b4ae42728d3bbfe29fc9281", "upvotes": 0, "downvotes": 0 }, { "title": "Harbour Green Park", "address1": "1199 W Cordova Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2898040141255, "lng": -123.121466998595 }, "placeId": "c3104bc445d707274a189b9f6384d9ff0f129d2f", "upvotes": 0, "downvotes": 0 }, { "title": "Locarno Park", "address1": "4445 NW Marine Drive", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2750659923232, "lng": -123.206555013072 }, "placeId": "6c00d26e78b365fcea36f5772a9a488c3da92ccb", "upvotes": 0, "downvotes": 0 }, { "title": "MacLean Park", "address1": "710 Keefer Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.27900702288, "lng": -123.0893660404 }, "placeId": "27ec5a4a30722d972d58574268882e5ebcf9fb37", "upvotes": 0, "downvotes": 0 }, { "title": "Moberly Park", "address1": "7646 Prince Albert Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2152529959461, "lng": -123.087354978911 }, "placeId": "b206d53c88adbf625e78ea1916828321f0884f10", "upvotes": 0, "downvotes": 0 }, { "title": "Nanaimo Park", "address1": "2390 E 46th Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2282419990449, "lng": -123.057429042023 }, "placeId": "957fb9c1194f527f177b4bbc34e6f613e5884828", "upvotes": 0, "downvotes": 0 }, { "title": "Norquay Park", "address1": "5050 Wales Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2379749903438, "lng": -123.051424959911 }, "placeId": "69f3a02c9ffe880580a8cd777d6edd1296290b51", "upvotes": 0, "downvotes": 0 }, { "title": "Oppenheimer Park", "address1": "400 Powell Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2829379681762, "lng": -123.094181035354 }, "placeId": "46440f4c573412718e82f018e7510069b228dbaa", "upvotes": 0, "downvotes": 0 }, { "title": "Pandora Park", "address1": "2325 Franklin Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2822799986755, "lng": -123.057478049186 }, "placeId": "d31bb51ea45fef4ab391350d7c4bdcc2953827d9", "upvotes": 0, "downvotes": 0 }, { "title": "Queen Elizabeth Park", "address1": "4600 Cambie Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2389380178008, "lng": -123.111577056628 }, "placeId": "9c0ddd18444dacc89bb85a5201bbf77e450f57b6", "upvotes": 0, "downvotes": 0 }, { "title": "Queen Elizabeth Park", "address1": "4600 Cambie Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2422110176667, "lng": -123.112844975315 }, "placeId": "b558473697fa726f9991a73f46fc417340a0b3ff", "upvotes": 0, "downvotes": 0 }, { "title": "Rupert Park", "address1": "1600 Rupert Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2730500015562, "lng": -123.030682959269 }, "placeId": "88a5c7b3a42c0f77032bd7a3572ce8d908f956d9", "upvotes": 0, "downvotes": 0 }, { "title": "Spanish Banks Beach Park", "address1": "4801 NW Marine Drive", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2774719860241, "lng": -123.222679055401 }, "placeId": "f133ddbc3f60cecf64f45c513547f5168c773665", "upvotes": 0, "downvotes": 0 }, { "title": "Spanish Banks Beach Park", "address1": "4801 NW Marine Drive", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2762439755221, "lng": -123.21492003747 }, "placeId": "9092e851d52c783be1e405713aa52790239c508e", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.3020690032254, "lng": -123.132923042179 }, "placeId": "1fb3e3a6199bb1b2fbe1e895bd84331c714d248c", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.3031529920237, "lng": -123.155931048676 }, "placeId": "1c3402aad54e9b82cc4c774523721e4749ad0721", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2998679959831, "lng": -123.13070000487 }, "placeId": "7b4c042d392c17c9c5227426496929217af02465", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2996259645902, "lng": -123.126023002581 }, "placeId": "a5948d27dc8c257520f44ef8acafff51899ed70f", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.3029259847064, "lng": -123.130707978951 }, "placeId": "f5422b2f8a47ea8844d1d0d11184de98b0413a25", "upvotes": 0, "downvotes": 0 }, { "title": "Stanley Park", "address1": "2000 W Georgia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.3124120320746, "lng": -123.142649989276 }, "placeId": "3f8aaf46cbda33644bb5f3259468ce517d995d2e", "upvotes": 0, "downvotes": 0 }, { "title": "Strathcona Park", "address1": "857 Malkin Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2745570066112, "lng": -123.086188991758 }, "placeId": "60488b20480d3c4997f9884297ee40e590043a6d", "upvotes": 0, "downvotes": 0 }, { "title": "Sunrise Park", "address1": "1950 Windermere Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2669229919436, "lng": -123.03601798246 }, "placeId": "c0982961d889001122e5d1c7797823efa3e7e4ec", "upvotes": 0, "downvotes": 0 }, { "title": "Tatlow Park", "address1": "2845 W 3rd Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.269476011815, "lng": -123.169511949678 }, "placeId": "1bc160681c9bd1da51cd498fba1e1219468833f4", "upvotes": 0, "downvotes": 0 }, { "title": "Trafalgar Park", "address1": "2610 W 23rd Avenue", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2515549664121, "lng": -123.163471973425 }, "placeId": "6f901be622394aab15152fc147e0a5c5570d5293", "upvotes": 0, "downvotes": 0 }, { "title": "VanDusen Botanical Garden", "address1": "5251 Oak Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2386594327158, "lng": -123.129557645767 }, "placeId": "3ca44a03fc8cee69fe7483179965c044e952d185", "upvotes": 0, "downvotes": 0 }, { "title": "Vanier Park", "address1": "1000 Chestnut Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2751960118216, "lng": -123.139855943743 }, "placeId": "f8198ea257533852d31d73c47e481fc4b88a5772", "upvotes": 0, "downvotes": 0 }, { "title": "Victoria Park", "address1": "1425 Victoria Drive", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2717440428088, "lng": -123.067413016488 }, "placeId": "c15d46b55d0503e87916baa1606573de59fe1ded", "upvotes": 0, "downvotes": 0 }, { "title": "Winona Park", "address1": "7575 Columbia Street", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2157179803502, "lng": -123.112948945253 }, "placeId": "d06e2cf6da8822894ed4c99495a27a99553f0e9b", "upvotes": 0, "downvotes": 0 }, { "title": "Bute at Davie", "address1": "Mid Block Between Davie St and See-Em_la Lane", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.282003, "lng": -123.133157 }, "placeId": "e0473724b75d76989f8eb14251515581ef53d9cb", "upvotes": 0, "downvotes": 0 }, { "title": "Nelson Park", "address1": "West side of park", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.283378, "lng": -123.130677 }, "placeId": "597fe6748e215813348b21d847ce4121603db933", "upvotes": 0, "downvotes": 0 }, { "title": "Powell at Main", "address1": "NW corner of intersection", "address2": "Vancouver, BC, Canada", "coords": { "lat": 49.2832763, "lng": -123.099849 }, "placeId": "68f7f18a762fb656999dac2fc7a75b6abf1651d2", "upvotes": 0, "downvotes": 0 }],
+      "mapOptions": { "center": { "lat": 38.0, "lng": -100.0 }, "fullscreenControl": true, "mapTypeControl": false, "streetViewControl": false, "zoom": 4, "zoomControl": true, "maxZoom": 17 },
+      "mapsApiKey": "AIzaSyAIyqVay-7_nFbU0sh6MfMjboL3dqGv82k"
+    };
+
+    function initMap() {
+      new LocatorPlus(CONFIGURATION);
+    }
+
+  </script>
+  <script id="locator-result-items-tmpl" type="text/x-handlebars-template">
+      {{#each locations}}
+        <li class="location-result" data-location-index="{{index}}">
+          <button class="select-location">
+            <h2 class="name">{{title}}</h2>
+          </button>
+          <div class="address">{{address1}}<br>{{address2}}</div>
+          <button class="details-button">
+            View details
+          </button>
+          {{#if travelDistanceText}}
+            <div class="distance">{{travelDistanceText}}</div>
+          {{/if}}
+          {{#if ../showDirectionsButton}}
+            <button class="show-directions" title="Show directions to this location">
+              <svg width="34" height="34" viewBox="0 0 34 34"
+                   fill="none" xmlns="http://www.w3.org/2000/svg" alt="Show directions">
+                <path d="M17.5867 9.24375L17.9403 8.8902V8.8902L17.5867 9.24375ZM16.4117 9.24375L16.7653 9.59731L16.7675 9.59502L16.4117 9.24375ZM8.91172 16.7437L8.55817 16.3902L8.91172 16.7437ZM8.91172 17.9229L8.55817 18.2765L8.55826 18.2766L8.91172 17.9229ZM16.4117 25.4187H16.9117V25.2116L16.7652 25.0651L16.4117 25.4187ZM16.4117 25.4229H15.9117V25.63L16.0582 25.7765L16.4117 25.4229ZM25.0909 17.9229L25.4444 18.2765L25.4467 18.2742L25.0909 17.9229ZM25.4403 16.3902L17.9403 8.8902L17.2332 9.5973L24.7332 17.0973L25.4403 16.3902ZM17.9403 8.8902C17.4213 8.3712 16.5737 8.3679 16.0559 8.89248L16.7675 9.59502C16.8914 9.4696 17.1022 9.4663 17.2332 9.5973L17.9403 8.8902ZM16.0582 8.8902L8.55817 16.3902L9.26527 17.0973L16.7653 9.5973L16.0582 8.8902ZM8.55817 16.3902C8.0379 16.9105 8.0379 17.7562 8.55817 18.2765L9.26527 17.5694C9.13553 17.4396 9.13553 17.227 9.26527 17.0973L8.55817 16.3902ZM8.55826 18.2766L16.0583 25.7724L16.7652 25.0651L9.26517 17.5693L8.55826 18.2766ZM15.9117 25.4187V25.4229H16.9117V25.4187H15.9117ZM16.0582 25.7765C16.5784 26.2967 17.4242 26.2967 17.9444 25.7765L17.2373 25.0694C17.1076 25.1991 16.895 25.1991 16.7653 25.0694L16.0582 25.7765ZM17.9444 25.7765L25.4444 18.2765L24.7373 17.5694L17.2373 25.0694L17.9444 25.7765ZM25.4467 18.2742C25.9631 17.7512 25.9663 16.9096 25.438 16.3879L24.7354 17.0995C24.8655 17.2279 24.8687 17.4363 24.7351 17.5716L25.4467 18.2742Z" fill="#7e7efd"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M19 19.8333V17.75H15.6667V20.25H14V16.9167C14 16.4542 14.3708 16.0833 14.8333 16.0833H19V14L21.9167 16.9167L19 19.8333Z" fill="#7e7efd"/>
+                <circle cx="17" cy="17" r="16.5" stroke="#7e7efd"/>
+              </svg>
+            </button>
+          {{/if}}
+        </li>
+      {{/each}}
+    </script>
+  <script id="locator-details-tmpl" type="text/x-handlebars-template">
+      <button class="back-button">
+        <img class="icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/arrow_back/v11/24px.svg" alt=""/>
+        Back
+      </button>
+      <header>
+        <div class="banner">
+          <svg width="23" height="32" viewBox="0 0 23 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M22.9976 11.5003C22.9976 13.2137 22.7083 14.9123 21.8025 16.7056C18.6321 22.9832 12.7449 24.3314 12.2758 30.7085C12.2448 31.1294 11.9286 31.4744 11.4973 31.4744C11.0689 31.4744 10.7527 31.1294 10.7218 30.7085C10.2527 24.3314 4.3655 22.9832 1.19504 16.7056C0.289306 14.9123 0 13.2137 0 11.5003C0 5.13275 5.14557 0 11.5003 0C17.852 0 22.9976 5.13275 22.9976 11.5003Z" fill="#4285F4"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" transform="translate(5.5,5.5)" d="M6 8.84091L9.708 11L8.724 6.92961L12 4.19158L7.6856 3.83881L6 0L4.3144 3.83881L0 4.19158L3.276 6.92961L2.292 11L6 8.84091Z" fill="#FBE15C"/>
+          </svg>
+        </div>
+        <h2>{{location.title}}</h2>
+      </header>
+      {{#if location.travelDistanceText}}
+        <div class="distance">{{location.travelDistanceText}} away</div>
+      {{/if}}
+      <div class="address">
+        {{location.address1}}<br>
+        {{location.address2}}
+      </div>
+      <div class="atmosphere">
+        {{#if place.rating}}
+          <span class="star-rating-numeric">{{place.rating}}</span>
+          <span>
+            {{#each place.fullStarIcons}}
+              <img src="https://fonts.gstatic.com/s/i/googlematerialicons/star/v15/24px.svg"
+                   alt="" class="star-icon"/>
+            {{/each}}
+            {{#each place.halfStarIcons}}
+              <img src="https://fonts.gstatic.com/s/i/googlematerialicons/star_half/v17/24px.svg"
+                   alt="" class="star-icon"/>
+            {{/each}}
+            {{#each place.emptyStarIcons}}
+              <img src="https://fonts.gstatic.com/s/i/googlematerialicons/star_outline/v9/24px.svg"
+                   alt="" class="star-icon"/>
+            {{/each}}
+          </span>
+        {{/if}}
+        {{#if place.user_ratings_total}}
+          <a href="{{place.url}}" target="_blank">{{place.user_ratings_total}} reviews</a>
+        {{else}}
+          <a href="{{place.url}}" target="_blank">See on Google Maps</a>
+        {{/if}}
+        {{#if place.price_level}}
+          &bull;
+          <span class="price-dollars">
+            {{#each place.dollarSigns}}${{/each}}
+          </span>
+        {{/if}}
+      </div>
+      <hr/>
+      {{#if place.opening_hours}}
+        <div class="hours contact">
+          <img src="https://fonts.gstatic.com/s/i/googlematerialicons/schedule/v12/24px.svg"
+               alt="Opening hours" class="icon"/>
+          <div class="right">
+            {{#each place.openingHoursSummary}}
+              <div>
+                <span class="weekday">{{days}}</span>
+                <span class="hours">{{hours}}</span>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+      {{/if}}
+      {{#if place.website}}
+        <div class="website contact">
+          <img src="https://fonts.gstatic.com/s/i/googlematerialicons/public/v10/24px.svg"
+               alt="Website" class="icon"/>
+          <div class="right">
+            <a href="{{place.website}}" target="_blank">{{place.websiteDomain}}</a>
+          </div>
+        </div>
+      {{/if}}
+      {{#if place.formatted_phone_number}}
+        <div class="phone contact">
+          <img src="https://fonts.gstatic.com/s/i/googlematerialicons/phone/v10/24px.svg"
+               alt="Phone number" class="icon"/>
+          <div class="right">
+            {{place.formatted_phone_number}}
+          </div>
+        </div>
+      {{/if}}
+      {{#if place.html_attributions}}
+        {{#each place.html_attributions}}
+          <p class="attribution">{{{this}}}</p>
+        {{/each}}
+      {{/if}}
+    </script>
+</head>
+
+<body>
+  <!--  daniels work starts here-->
+  <input id="address" type="text" placeholder="Type something here">
+
+  <input id="search" type="button" value="search" onClick="search_func()">
+  <input id="search" type="button" value="click to locate" onClick="get_location()">
+
+  <div id="myCard" style="display: none;">
+    <div class="card">
+      <div class="container">
+        <p id="demo"></p>
+        <p> upvotes: </p>
+        <p id="upvotes"></p>
+        <p> downvotes: </p>
+        <p id="downvotes"></p>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    function get_location() {
+      infoWindow = new google.maps.InfoWindow();
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+              };
+              console.log(pos)
+              locator.map.setCenter(pos);
+              addMarker(pos, locator.map)
+              
+            },
+            () => {
+              handleLocationError(true, infoWindow, locator.map.getCenter());
+            }
+          );
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, locator.map.getCenter());
+        }
+      
+
+    }
+
+
+
+
+    function geocode(request, address) {
+      geocoder
+        .geocode(request)
+        .then((result) => {
+          const { results } = result;
+          marker = new google.maps.Marker({
+          });
+
+          locator.map.setCenter(results[0].geometry.location);
+          marker.setPosition(results[0].geometry.location);
+          marker.setMap(locator.map);
+          responseDiv.style.display = "block";
+          response.innerText = JSON.stringify(result, null, 2);
+
+          var coord = marker.getPosition();
+          var lat = coord.lat();
+          var lng = coord.lng();
+          new_marker = new myMarker(lat,lng, address);
+          var x = document.getElementById("myCard");
+
+          document.getElementById("demo").innerHTML = new_marker.title;
+          document.getElementById("upvotes").innerHTML = new_marker.upvotes;
+          document.getElementById("downvotes").innerHTML = new_marker.downvotes;
+          x.style.display = "block";
+          marker.addListener('click', function() {
+
+            if (x.style.display === "none") {
+              x.style.display = "block";
+              
+            } else {
+            x.style.display = "none";
+            }
+          });
+          return results;
+        })
+
+    }
+    function search_func() {
+      address = document.getElementById("address").value;
+      //write your specific code from here
+      console.log(address)
+      geocode({ address: address }, address)
+    
+    }
+
+  </script>
+
+  <!-- daniels ends here -->
+
+
+  <div id="map-container">
+    <div id="locations-panel">
+      <div id="locations-panel-list">
+        <header>
+          <h1 class="search-title">
+            <img src="https://fonts.gstatic.com/s/i/googlematerialicons/place/v15/24px.svg" />
+            Find a gender-neutral washroom near you
+          </h1>
+          <div class="search-input">
+            <input id="location-search-input" placeholder="Enter your address or zip code">
+            <div id="search-overlay-search" class="search-input-overlay search">
+              <button id="location-search-button">
+                <img class="icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/search/v11/24px.svg"
+                  alt="Search" />
+              </button>
+            </div>
+          </div>
+        </header>
+        <div class="section-name" id="location-results-section-name">
+          All locations
+        </div>
+        <div class="results">
+          <ul id="location-results-list"></ul>
+        </div>
+      </div>
+      <div id="locations-panel-details"></div>
+    </div>
+    <div id="map"></div>
+  </div>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIyqVay-7_nFbU0sh6MfMjboL3dqGv82k&callback=initMap&libraries=places,geometry&solution_channel=GMP_QB_locatorplus_v4_cABCDE"
+    async defer></script>
+</body>
+
+</html>
