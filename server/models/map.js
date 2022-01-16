@@ -2,40 +2,40 @@ const mongoose = require("mongoose");
 
 const mapSchema = new mongoose.Schema({
   title: {
-    type: "string",
+    type: String,
     required: true,
   },
   address1: {
-    type: "string",
+    type: String,
     required: true,
   },
   address2: {
-    type: "string",
+    type: String,
     required: true,
   },
   coords: {
-    type: "object",
+    type: Object,
     properties: {
       lat: {
-        type: "number",
+        type: Number,
       },
       lng: {
-        type: "number",
+        type: Number,
       },
     },
-    required: ["lat", "lng"],
+    required: true,
   },
   placeId: {
-    type: "string",
+    type: String,
     required: true,
   },
   upvotes: {
-    type: "integer",
+    type: Number,
     required: true,
     default: 0,
   },
   downvotes: {
-    type: "integer",
+    type: Number,
     required: true,
     default: 0,
   },
