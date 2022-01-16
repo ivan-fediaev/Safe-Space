@@ -321,6 +321,7 @@ body {
   height: 40px;
   cursor: pointer;
 }
+
 .custom-map-control-button:hover {
   background: #ebebeb;
 }
