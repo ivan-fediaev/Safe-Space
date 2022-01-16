@@ -55,15 +55,12 @@ function LocatorPlus(configuration) {
     }
   };
 
-  const image =
-  "https://scontent-sea1-1.xx.fbcdn.net/v/t1.15752-9/cp0/271604519_314547720583056_5470165821782602616_n.png?_nc_cat=106&ccb=1-5&_nc_sid=ae9488&_nc_ohc=nKEllL9OCXwAX-9WG5c&tn=GcT0MifN5HMaFWBu&_nc_ht=scontent-sea1-1.xx&oh=03_AVKv0gpl6hYZjhB3k5ZsNTE4ZcDPv3PITFS5imuHf2zrvQ&oe=62087213";
   // Create a marker for each location.
   const markers = locator.locations.map(function(location, index) {
     const marker = new google.maps.Marker({
       position: location.coords,
       map: locator.map,
-      title: location.title,
-      icon: image
+      title: location.title
     });
     marker.addListener('click', function() {
       selectResultItem(index, false, true);
