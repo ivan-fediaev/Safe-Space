@@ -1,5 +1,27 @@
 'use strict';
 
+/**daniels code and functions
+ * 
+ * 
+ */
+
+ let map;
+ let marker;
+ let geocoder;
+ let responseDiv;
+ let response;
+ 
+ function addMarker(location, map) {
+  // Add the marker at the clicked location, and add the next-available label
+  // from the array of alphabetical characters.
+  new google.maps.Marker({
+    position: location,
+    map: map,
+  });
+}
+
+
+
 /** Hide a DOM element. */
 function hideElement(el) {
   el.style.display = 'none';
@@ -14,8 +36,30 @@ function showElement(el) {
  * Defines an instance of the Locator+ solution, to be instantiated
  * when the Maps library is loaded.
  */
+const locator = this;
+
+  /**daniels code */
+  response = document.createElement("pre");
+  response.id = "response";
+  response.innerText = "";
+  responseDiv = document.createElement("div");
+  responseDiv.id = "response-container";
+  responseDiv.appendChild(response);
+  
+
+
+function placeMarker(position, map) {
+  var marker = new google.maps.Marker({
+      position: position,
+      map: map
+  });
+  map.panTo(position);
+}
+
+
+  /**------------- */
+
 function LocatorPlus(configuration) {
-  const locator = this;
 
   locator.locations = configuration.locations || [];
   locator.capabilities = configuration.capabilities || {};
@@ -38,6 +82,10 @@ function LocatorPlus(configuration) {
   // Initialize the map -------------------------------------------------------
   locator.map = new google.maps.Map(mapEl, configuration.mapOptions);
 
+  locator.map.addListener('click', function(e) {
+    console.log("bp")
+    placeMarker(e.latLng, locator.map);
+});
   // Store selection.
   const selectResultItem = function(locationIdx, panToMarker, scrollToResult) {
     locator.selectedLocationIdx = locationIdx;
@@ -161,7 +209,7 @@ function LocatorPlus(configuration) {
       }
     }
   };
-
+  
   // Optional capability initialization --------------------------------------
   initializeSearchInput(locator);
   initializeDistanceMatrix(locator);
@@ -170,12 +218,15 @@ function LocatorPlus(configuration) {
 
   // Initial render of results -----------------------------------------------
   locator.renderResultsList();
-}
 
+  
+}
 /** When the search input capability is enabled, initialize it. */
+
 function initializeSearchInput(locator) {
   const geocodeCache = new Map();
-  const geocoder = new google.maps.Geocoder();
+  geocoder = new google.maps.Geocoder();
+
 
   const searchInputEl = document.getElementById('location-search-input');
   const searchButtonEl = document.getElementById('location-search-button');
