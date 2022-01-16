@@ -18,9 +18,34 @@
     position: location,
     map: map,
   });
+
+  new_marker = new myMarker(lat,lng, address);
+  var x = document.getElementById("myCard");
+
+  document.getElementById("demo").innerHTML = new_marker.title;
+  document.getElementById("upvotes").innerHTML = new_marker.upvotes;
+  document.getElementById("downvotes").innerHTML = new_marker.downvotes;
+  x.style.display = "block";
+  marker.addListener('click', function() {
+
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      
+    } else {
+    x.style.display = "none";
+    }
+  });
 }
 
-
+class myMarker {
+  constructor(lat, lng, title) {
+    this.upvotes = 0;
+    this.downvotes = 0;
+    this.title = title;
+    this.lat = lat;
+    this.lng = lng
+  }
+}
 
 /** Hide a DOM element. */
 function hideElement(el) {
@@ -82,10 +107,7 @@ function LocatorPlus(configuration) {
   // Initialize the map -------------------------------------------------------
   locator.map = new google.maps.Map(mapEl, configuration.mapOptions);
 
-  locator.map.addListener('click', function(e) {
-    console.log("bp")
-    placeMarker(e.latLng, locator.map);
-});
+
   // Store selection.
   const selectResultItem = function(locationIdx, panToMarker, scrollToResult) {
     locator.selectedLocationIdx = locationIdx;

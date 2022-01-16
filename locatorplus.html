@@ -147,6 +147,20 @@
 
   <input id="search" type="button" value="search" onClick="search_func()">
   <input id="search" type="button" value="click to locate" onClick="get_location()">
+
+  <div id="myCard" style="display: none;">
+    <div class="card">
+      <div class="container">
+        <p id="demo"></p>
+        <p> upvotes: </p>
+        <p id="upvotes"></p>
+        <p> downvotes: </p>
+        <p id="downvotes"></p>
+      </div>
+    </div>
+  </div>
+
+
   <script>
     function get_location() {
       infoWindow = new google.maps.InfoWindow();
@@ -161,6 +175,7 @@
               console.log(pos)
               locator.map.setCenter(pos);
               addMarker(pos, locator.map)
+              
             },
             () => {
               handleLocationError(true, infoWindow, locator.map.getCenter());
@@ -183,11 +198,6 @@
         .then((result) => {
           const { results } = result;
           marker = new google.maps.Marker({
-            title: address,
-          });
-
-          marker.addListener('click', function() {
-            selectResultItem(0, false, true);
           });
 
           locator.map.setCenter(results[0].geometry.location);
@@ -195,6 +205,26 @@
           marker.setMap(locator.map);
           responseDiv.style.display = "block";
           response.innerText = JSON.stringify(result, null, 2);
+
+          var coord = marker.getPosition();
+          var lat = coord.lat();
+          var lng = coord.lng();
+          new_marker = new myMarker(lat,lng, address);
+          var x = document.getElementById("myCard");
+
+          document.getElementById("demo").innerHTML = new_marker.title;
+          document.getElementById("upvotes").innerHTML = new_marker.upvotes;
+          document.getElementById("downvotes").innerHTML = new_marker.downvotes;
+          x.style.display = "block";
+          marker.addListener('click', function() {
+
+            if (x.style.display === "none") {
+              x.style.display = "block";
+              
+            } else {
+            x.style.display = "none";
+            }
+          });
           return results;
         })
 
