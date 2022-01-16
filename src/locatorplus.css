@@ -9,7 +9,7 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
-  font-family: "Roboto", sans-serif;
+  font-family: "Helvetica", sans-serif;
   box-sizing: border-box;
 }
 
@@ -309,6 +309,23 @@ body {
   font-style: italic;
 }
 
+
+.custom-map-control-button {
+  background-color: #fff;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  padding: 0 0.5em;
+  font: 400 18px Roboto, Arial, sans-serif;
+  overflow: hidden;
+  height: 40px;
+  cursor: pointer;
+}
+
+.custom-map-control-button:hover {
+  background: #ebebeb;
+
 .myCard {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -323,4 +340,5 @@ body {
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px;
+
 }

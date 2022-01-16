@@ -21,6 +21,7 @@
   }
  }
  let marker_array = [];
+
  function addMarker(location, map) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
@@ -37,11 +38,13 @@
   document.getElementById("downvotes").innerHTML = new_marker.downvotes;
   x.style.display = "block";
   marker.addListener('click', function() {
+    
     var x = document.getElementById("myCard");
 
     document.getElementById("demo").innerHTML = new_marker.title;
     document.getElementById("upvotes").innerHTML = new_marker.upvotes;
     document.getElementById("downvotes").innerHTML = new_marker.downvotes;
+
     if (x.style.display === "none") {
       x.style.display = "block";
       
@@ -144,7 +147,9 @@ function LocatorPlus(configuration) {
     const marker = new google.maps.Marker({
       position: location.coords,
       map: locator.map,
+
       title: location.title,
+
     });
     marker.addListener('click', function() {
       selectResultItem(index, false, true);
