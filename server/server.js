@@ -2,8 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const monogoose = require('mongoose'); 
+const cors = require("cors")
 
-monogoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true});
+app.use(cors({origin: "*"}))
+monogoose.connect("mongodb+srv://safespace:safespace@cluster0.ykymk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {useNewUrlParser: true});
 
 const db = monogoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
